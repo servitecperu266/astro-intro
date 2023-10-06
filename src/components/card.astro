@@ -1,0 +1,62 @@
+---
+interface Props {
+	title?: string;
+	urlImage?: string;
+	status?: string;
+	specie?: string;
+}
+
+const {
+	title = "no title",
+	urlImage = "https://www.eclosio.ong/wp-content/uploads/2018/08/default.png",
+	specie = "Human",
+	status = "Alive",
+} = Astro.props;
+---
+
+<div class="container">
+	<img src={urlImage} alt={title} />
+	<div class="item-information">
+		<h2>{title}</h2>
+		<ul>
+			<li>Status: <span>{status}</span></li>
+			<li>Specie: <span>{specie}</span></li>
+		</ul>
+	</div>
+</div>
+
+<style>
+	.container {
+		background-color: #ccc;
+		border-radius: 1em;
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		max-width: 12em;
+		width: 100%;
+		padding: 1em;
+		color: #000;
+		margin: 1em;
+	}
+
+	.container img {
+		border-radius: 50%;
+		width: 10em;
+		height: 10em;
+		object-fit: cover;
+	}
+
+	.container .item-information h2 {
+		color: #000;
+		text-align: center;
+	}
+	.container .item-information ul {
+		list-style: none;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.container .item-information ul li {
+		font-weight: 600;
+	}
+</style>

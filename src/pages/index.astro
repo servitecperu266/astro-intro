@@ -1,0 +1,27 @@
+---
+import Layout from "../components/Layout.astro";
+import Nav from "../components/Nav.astro";
+import { ButtonSubcribe } from "../components/ButtonSubcribe";
+
+const hobbies = ["program", "write", "read", "play"];
+---
+
+<Layout pageTitle="Home">
+	<Nav />
+
+	{hobbies.map((hobby) => <h2>{hobby}</h2>)}
+
+	<ButtonSubcribe client:load />
+
+	<h2>2:19:00</h2>
+
+	<style>
+		h2 {
+			color: red;
+		}
+	</style>
+
+	<script>
+		console.log("hello world");
+	</script>
+</Layout>

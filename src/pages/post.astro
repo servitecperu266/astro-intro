@@ -1,0 +1,46 @@
+---
+import Card from "../components/card.astro";
+import Layout from "../components/Layout.astro";
+
+const resp = await fetch("https://rickandmortyapi.com/api/character");
+
+const data = await resp.json();
+
+const characters = data.results;
+---
+
+<Layout>
+	<h2>Post</h2>
+
+	<div class="container-cards">
+		{
+			characters.map(({ name, image, status, specie }) => (
+				<Card
+					title={name}
+					urlImage={image}
+					status={status}
+					specie={specie}
+				/>
+			))
+		}
+	</div>
+
+	<style>
+		body {
+			background-color: #222;
+			color: #fff;
+			box-sizing: border-box;
+			margin: 1em;
+			width: 100%;
+		}
+
+		.container-cards {
+			/* display: grid;
+			gap: 2em;
+			grid-template-columns: repeat(auto-fit, minmax(9em, auto)); */
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5em;
+		}
+	</style>
+</Layout>

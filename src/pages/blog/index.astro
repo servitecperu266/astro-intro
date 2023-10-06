@@ -1,0 +1,21 @@
+---
+import Layout from "../../components/Layout.astro";
+
+const posts = await Astro.glob("./posts/*.md");
+
+console.log(posts);
+---
+
+<Layout>
+	<h2>Blog</h2>
+
+	{posts.map((post) => <a href={post.url}>{post.frontmatter.title}</a>)}
+
+	<style>
+		a {
+			color: #fff;
+			font-size: 1.3em;
+			display: block;
+		}
+	</style>
+</Layout>

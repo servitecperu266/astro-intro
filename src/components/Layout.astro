@@ -1,0 +1,29 @@
+---
+interface Props {
+	pageTitle?: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Astro Page {pageTitle && `| ${pageTitle}`}</title>
+	</head>
+	<body>
+		<slot />
+
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #202020;
+				color: #fff;
+				box-sizing: border-box;
+			}
+		</style>
+	</body>
+</html>
